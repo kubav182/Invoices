@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-invoice-my-suffix-heading" jhiTranslate="invoicesApp.invoice.home.createOrEditLabel">Create or edit a Invoice</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!invoice.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="invoice.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="invoicesApp.invoice.number" for="field_number">Number</label>
+                    <input type="text" class="form-control" name="number" id="field_number"
+                        [(ngModel)]="invoice.number" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="invoicesApp.invoice.invoiceDate" for="field_invoiceDate">Invoice Date</label>
+                    <div class="d-flex">
+                        <input id="field_invoiceDate" type="datetime-local" class="form-control" name="invoiceDate" [(ngModel)]="invoiceDate"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="invoicesApp.invoice.dueDate" for="field_dueDate">Due Date</label>
+                    <div class="d-flex">
+                        <input id="field_dueDate" type="datetime-local" class="form-control" name="dueDate" [(ngModel)]="dueDate"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="invoicesApp.invoice.tax" for="field_tax">Tax</label>
+                    <input type="number" class="form-control" name="tax" id="field_tax"
+                        [(ngModel)]="invoice.tax" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="invoicesApp.invoice.contractor" for="field_contractor">Contractor</label>
+                    <select class="form-control" id="field_contractor" name="contractor" [(ngModel)]="invoice.contractorId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="contractorOption.id" *ngFor="let contractorOption of contractors; trackBy: trackContractorById">{{contractorOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="invoicesApp.invoice.customer" for="field_customer">Customer</label>
+                    <select class="form-control" id="field_customer" name="customer" [(ngModel)]="invoice.customerId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="customerOption.id" *ngFor="let customerOption of customers; trackBy: trackCustomerById">{{customerOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="invoicesApp.invoice.items" for="field_items">Items</label>
+                    <select class="form-control" id="field_items" multiple name="items" [(ngModel)]="invoice.items">
+                        <option [ngValue]="getSelected(invoice.items, itemOption)" *ngFor="let itemOption of items; trackBy: trackItemById">{{itemOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

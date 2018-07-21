@@ -1,0 +1,28 @@
+
+{
+    "invoicesApp": {
+        "invoice" : {
+            "home": {
+                "title": "Invoices",
+                "createLabel": "Vytvořit Invoice",
+                "createOrEditLabel": "Vytvořit nebo upravit Invoice"
+            },
+            "created": "Byl vytvořen potomek entity Invoice s identifikátorem {{ param }}",
+            "updated": "Potomek entity Invoice s identifikátorem {{ param }} byl upravený.",
+            "deleted": "Potomek entity Invoice s identifikátorem {{ param }} bol smazaný.",
+            "delete": {
+                "question": "Jste si jisti, že chcete smazat Invoice {{ id }}?"
+            },
+            "detail": {
+                "title": "Invoice"
+            },
+            "number": "Number",
+            "invoiceDate": "Invoice Date",
+            "dueDate": "Due Date",
+            "tax": "Tax",
+            "contractor": "Contractor",
+            "customer": "Customer",
+            "items": "Items"
+        }
+    }
+}

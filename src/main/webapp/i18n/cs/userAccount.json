@@ -1,0 +1,24 @@
+
+{
+    "invoicesApp": {
+        "userAccount" : {
+            "home": {
+                "title": "User Accounts",
+                "createLabel": "Vytvořit User Account",
+                "createOrEditLabel": "Vytvořit nebo upravit User Account"
+            },
+            "created": "Byl vytvořen potomek entity User Account s identifikátorem {{ param }}",
+            "updated": "Potomek entity User Account s identifikátorem {{ param }} byl upravený.",
+            "deleted": "Potomek entity User Account s identifikátorem {{ param }} bol smazaný.",
+            "delete": {
+                "question": "Jste si jisti, že chcete smazat User Account {{ id }}?"
+            },
+            "detail": {
+                "title": "User Account"
+            },
+            "email": "Email",
+            "password": "Password",
+            "role": "Role"
+        }
+    }
+}

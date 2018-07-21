@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="customer">
+            <h2><span jhiTranslate="invoicesApp.customer.detail.title">Customer</span> {{customer.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="invoicesApp.customer.name">Name</span></dt>
+                <dd>
+                    <span>{{customer.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="invoicesApp.customer.identificationNumber">Identification Number</span></dt>
+                <dd>
+                    <span>{{customer.identificationNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="invoicesApp.customer.taxIdentificationNumber">Tax Identification Number</span></dt>
+                <dd>
+                    <span>{{customer.taxIdentificationNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="invoicesApp.customer.street">Street</span></dt>
+                <dd>
+                    <span>{{customer.street}}</span>
+                </dd>
+                <dt><span jhiTranslate="invoicesApp.customer.city">City</span></dt>
+                <dd>
+                    <span>{{customer.city}}</span>
+                </dd>
+                <dt><span jhiTranslate="invoicesApp.customer.postcode">Postcode</span></dt>
+                <dd>
+                    <span>{{customer.postcode}}</span>
+                </dd>
+                <dt><span jhiTranslate="invoicesApp.customer.user">User</span></dt>
+                <dd>
+                    <div *ngIf="customer.userId">
+                        <a [routerLink]="['/user-account-my-suffix', customer.userId, 'view']">{{customer.userId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/customer-my-suffix', customer.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

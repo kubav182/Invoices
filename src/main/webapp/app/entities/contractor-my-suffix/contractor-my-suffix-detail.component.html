@@ -1,0 +1,65 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="contractor">
+            <h2><span jhiTranslate="invoicesApp.contractor.detail.title">Contractor</span> {{contractor.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="invoicesApp.contractor.name">Name</span></dt>
+                <dd>
+                    <span>{{contractor.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="invoicesApp.contractor.identificationNumber">Identification Number</span></dt>
+                <dd>
+                    <span>{{contractor.identificationNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="invoicesApp.contractor.taxIdentificationNumber">Tax Identification Number</span></dt>
+                <dd>
+                    <span>{{contractor.taxIdentificationNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="invoicesApp.contractor.street">Street</span></dt>
+                <dd>
+                    <span>{{contractor.street}}</span>
+                </dd>
+                <dt><span jhiTranslate="invoicesApp.contractor.city">City</span></dt>
+                <dd>
+                    <span>{{contractor.city}}</span>
+                </dd>
+                <dt><span jhiTranslate="invoicesApp.contractor.postcode">Postcode</span></dt>
+                <dd>
+                    <span>{{contractor.postcode}}</span>
+                </dd>
+                <dt><span jhiTranslate="invoicesApp.contractor.bankCode">Bank Code</span></dt>
+                <dd>
+                    <span>{{contractor.bankCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="invoicesApp.contractor.bankAccountNumber">Bank Account Number</span></dt>
+                <dd>
+                    <span>{{contractor.bankAccountNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="invoicesApp.contractor.bankAccountPrefix">Bank Account Prefix</span></dt>
+                <dd>
+                    <span>{{contractor.bankAccountPrefix}}</span>
+                </dd>
+                <dt><span jhiTranslate="invoicesApp.contractor.user">User</span></dt>
+                <dd>
+                    <div *ngIf="contractor.userId">
+                        <a [routerLink]="['/user-account-my-suffix', contractor.userId, 'view']">{{contractor.userId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/contractor-my-suffix', contractor.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
