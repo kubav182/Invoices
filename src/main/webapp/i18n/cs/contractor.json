@@ -1,0 +1,31 @@
+
+{
+    "invoicesApp": {
+        "contractor" : {
+            "home": {
+                "title": "Contractors",
+                "createLabel": "Vytvořit Contractor",
+                "createOrEditLabel": "Vytvořit nebo upravit Contractor"
+            },
+            "created": "Byl vytvořen potomek entity Contractor s identifikátorem {{ param }}",
+            "updated": "Potomek entity Contractor s identifikátorem {{ param }} byl upravený.",
+            "deleted": "Potomek entity Contractor s identifikátorem {{ param }} bol smazaný.",
+            "delete": {
+                "question": "Jste si jisti, že chcete smazat Contractor {{ id }}?"
+            },
+            "detail": {
+                "title": "Contractor"
+            },
+            "name": "Name",
+            "identificationNumber": "Identification Number",
+            "taxIdentificationNumber": "Tax Identification Number",
+            "street": "Street",
+            "city": "City",
+            "postcode": "Postcode",
+            "bankCode": "Bank Code",
+            "bankAccountNumber": "Bank Account Number",
+            "bankAccountPrefix": "Bank Account Prefix",
+            "user": "User"
+        }
+    }
+}

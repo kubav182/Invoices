@@ -1,0 +1,74 @@
+entity UserAccount {
+	email String required,
+    password String required,
+    role String
+}
+
+entity Contractor {
+	name String,
+    identificationNumber String,
+    taxIdentificationNumber String,
+    name String,
+    street String,
+    city String,
+    postcode String,
+    identificationNumber String,
+    taxIdentificationNumber String,
+    bankCode String,
+    bankAccountNumber String,
+    bankAccountPrefix String
+}
+
+entity Customer {
+	name String,
+    identificationNumber String,
+    taxIdentificationNumber String,
+    name String,
+    street String,
+    city String,
+    postcode String
+}
+
+entity Invoice {
+  number String,
+  invoiceDate Instant,
+  dueDate Instant,
+  tax Integer
+}
+
+entity Item {
+  itemName String,
+  unit String,
+  price Integer
+}
+
+relationship ManyToOne {
+	Contractor{user} to UserAccount
+}
+
+relationship ManyToOne {
+	Customer{user} to UserAccount
+}
+
+relationship ManyToOne {
+	Invoice{contractor} to Contractor
+}
+
+relationship ManyToOne {
+	Invoice{customer} to Customer
+}
+
+relationship ManyToMany {
+	Invoice{items} to Item
+}
+
+// Set pagination options
+paginate Invoice with infinite-scroll 
+paginate Contractor, Customer, Item with pagination
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl except Employee, Job
+// Set an angular suffix
+angularSuffix * with mySuffix
